@@ -1,0 +1,106 @@
+%--------------------------------------%
+%--------------------------------------%
+%--------------------------------------%
+%----- Pacotes e Classe do Documento --%
+\RequirePackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\RequirePackage[latin1,utf8]{inputenc}
+\RequirePackage[colorlinks=true]{hyperref}
+\RequirePackage{amsmath,amsfonts,amsbsy,graphicx,tabularx,enumerate,fancyhdr}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{multicol,wrapfig}
+\RequirePackage{amsthm,lipsum}
+\RequirePackage{tikz}
+\usetikzlibrary{shadows, shapes}
+\usepackage{titlesec}
+\RequirePackage{fourier-orns}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz}
+\captionsetup{
+  justification=raggedright,
+  labelfont={color=Maroon,bf},
+  font=footnotesize}
+\fancyhead{}
+\fancyfoot{}
+\reversemarginpar
+\pagestyle{fancy}
+\titlespacing*{\chapter}{-120pt}{-50pt}{20pt}
+\titlespacing*{\section}{0pt}{-20pt}{-20pt}
+\titlespacing*{\subsection}{0pt}{0pt}{-5pt}
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\filright\MakeUppercase{\chaptertitlename} \Huge\Roman{chapter}}{20pt}{\Huge}
+%---------------------------------------------------------%
+%---------------------------------------------------------%
+%-------------------------------------%
+%---------------------------------------------------------%
+%---------------------------------------------------------%
+%---------------------------------------------------------%
+%---------------------------------------------------------%
+%---------------------------------------------------------%
+%-------------------------------------%
+%-------ARQUIVO DE DEFINIÇÕES---------%
+%----------- 07/10/08 ----------------%
+%-------- Versão Original ------------%
+%---- Jonas Renan Moreira Gomes ------%
+%-------------------------------------%
+\addtolength{\parskip}{0.5\baselineskip} %pula linha depois de parágrafo
+%-------------------------------------%
+%-----------SEPARADORES---------------%
+%-------------------------------------%
+%-------------------------------------%
+%------------CONJUNTOS----------------%
+%-------------------------------------%
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\Rep}{\ensuremath{\mathbb{R}_+}}
+\newcommand{\Na}{\ensuremath{\mathbb{N}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+
+%-------------------------------------%
+%-------- FRASES MAIS USADAS ---------%
+%-------------------------------------%
+\newcommand{\Fl}{\ensuremath{\Rightarrow}}
+\newcommand{\talque}{\ensuremath{\text{ tal que }}}
+\newcommand{\sol}[1]{\\ \textbf{Solução} #1}
+\newcommand{\dica}{\\ \textit{Dica}\ }
+\newcommand{\desafio}{\begin{exer}[Desafio]}
+%-------------------------------------%
+%-------------- SEÇÕES ---------------%
+%-------------------------------------%
+\input{cabecalhos/teoremas}
+%------------ Escrever na margem ------------------------%
+\newcommand{\margem}[1]{\marginpar{
+%desenha o retangulo
+\begin{tikzpicture}
+\node[top color=LightBlue, bottom color = LightBlue, thick,rectangle]{};
+\end{tikzpicture}
+%terminou o retangulo
+\footnotesize #1
+}
+}
+%============= Página de exercícios =====================%
+\newcommand{\comecaexer}{
+\newgeometry{inner=2cm,outer=2cm,bottom=2cm,top=2cm}
+\begin{multicols}{2}\noindent
+}
+\newcommand{\terminaexer}{
+\end{multicols}\noindent
+\restoregeometry
+}
+\input{cabecalhos/caixas}
+\newcommand{\frapar}[2]{ \ensuremath{\left ( \frac{#1}{#2} \right)}}
+\titleformat{\section}
+{\Large\bfseries}%O que vem antes do texto <format>
+{}%{Label}
+{0em}%Separção
+{\caixasessao}%Código antes!!
+\titleformat{\subsection}
+{\color{MidnightBlue}\large\normalfont\bfseries}
+{\color{MidnightBlue}}{1 pt}{}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+%--------------------------------------------------------
+%------------------------------------------------------
+%--- MONTA O DOC ---------------------------------------

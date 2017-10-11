@@ -1,0 +1,104 @@
+%--------------------------------------------------------%
+%-------------ARQUIVOS DE MODELOS PARA AS----------------%
+%----------------CAIXAS FLUTUANTES-----------------------%
+%--------------------------------------------------------%
+%----------------CAIXA TESTE ----------------------------%
+%--------------------------------------------------------%
+%--------------------------------------------------------%
+\newcommand{\propriedades}[2]{
+%---------- \propriedades{nome longo}{propriedade em si}-----------------%
+\tikzstyle{mybox} = [draw=black,top color=BurntOrange!5,
+  bottom color=BurntOrange!0,rounded corners,thick,rectangle,inner sep=10pt, inner ysep=20pt]
+\tikzstyle{fancytitle} =[fill=BurntOrange!5, text=black, draw=black]
+\begin{tikzpicture}
+\node [mybox] (box){
+    \begin{minipage}{0.80\textwidth}
+       #2
+    \end{minipage}
+};
+\node[fancytitle, right=10pt,thick, inner sep = 8pt] at (box.north west){#1};
+
+\end{tikzpicture}%
+}
+%--------------------------------------------------------%
+%--------------------------------------------------------%
+%--------------------------------------------------------%
+
+%------------- Caixa de Propriedades --------------------%
+\newcommand{\caixaprop}[2][0.9\textwidth]{
+ \par\noindent\tikzstyle{mybox} = [draw=black,top color=BurntOrange!5,
+  bottom color=BurntOrange!0,rounded corners,thick,rectangle,inner sep=10pt]
+ \begin{tikzpicture}
+  \node [mybox] (box){%
+   \begin{minipage}{#1}{#2}\end{minipage}
+  };
+ \end{tikzpicture}
+}
+%------------- Caixa da Definição --------------------%
+\newcommand{\caixa}[2][0.9\textwidth]{
+ \par\noindent\tikzstyle{mybox} = [top color=gray!5,
+  bottom color=gray!5,thick,rectangle,inner sep=10pt]
+ \begin{tikzpicture}
+  \node [mybox] (box){%
+   \begin{minipage}{#1}{#2}\end{minipage}
+  };
+ \end{tikzpicture}
+}
+
+%------------- Caixa da Sessão --------------------%
+\newcommand{\caixasessao}[2][\textwidth]{
+ \par\noindent\tikzstyle{mybox} = [draw=black,left color=white,
+  right color=white,rounded corners,thick,rectangle,inner sep=5pt]
+ \begin{tikzpicture}
+  \node [mybox, drop shadow] (box){%
+   \begin{minipage}{#1}{#2}\end{minipage}
+  };
+ \end{tikzpicture}
+}
+
+%------------- Caixa Margem --------------------%
+\definecolor{amarelinho}{RGB}{237,242,64}
+\newcommand{\caixamargem}[2][\marginparwidth]{
+ \par\noindent
+ \tikzstyle{mybox} = [draw=white, top color=amarelinho, bottom color=amarelinho,thick,rectangle,inner sep=15pt]
+ \begin{tikzpicture}
+  \node [mybox] (box){
+   \begin{minipage}{#1}{#2 \newline \newline \newline}
+   \end{minipage}
+  };
+  \node[above left, outer sep=-3pt] at (box.south east) { \includegraphics{postit.png} };
+  \node[outer sep=-3pt] at (box.north) { \includegraphics{tachinha.png} };
+ \end{tikzpicture}
+}
+
+%---------- Caixa de Exemplo -----------------
+%---------------------------------------------
+\newcounter{NumeroExemplo}[chapter]
+\newcommand{\exem}[2]{\stepcounter{NumeroExemplo}
+
+
+\begin{tikzpicture}
+\node[top color=LightBlue, bottom color = LightBlue, rounded corners, thick,rectangle] (caixa) {\textbf{Exemplo \arabic{NumeroExemplo}}};
+\node[rectangle, right] at (caixa.east) {\textbf{#1}};
+\end{tikzpicture}\newline
+\normalsize #2
+
+\begin{center}
+\begin{tikzpicture}
+\draw[fill=LightBlue,drop shadow] (0,0) circle [radius=0.1];
+\draw[fill=LightBlue,drop shadow] (3,0) circle [radius=0.1];
+\draw[fill=LightBlue,drop shadow] (6,0) circle [radius=0.1];
+\draw[fill=LightBlue,drop shadow] (9,0) circle [radius=0.1];
+\end{tikzpicture}
+\end{center}
+}
+%--------------------------------------
+%------- Caixa de Definição -----------
+\newcommand{\definicao}[1]{
+	\caixa
+	{
+		\begin{dfn}
+				#1
+		\end{dfn}
+	}
+}

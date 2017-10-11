@@ -1,0 +1,59 @@
+\chapter{Função Exponencial e Função Logaritmo}
+\section{Função Exponencial}
+
+Exponenciação ou potenciação é a função matemática que generaliza o conceito de várias multiplicações de um mesmo número, da mesma forma que a multiplicação generaliza o conceito de várias somas de um mesmo número. A necessidade de uma generalização vem quando não estamos trabalhando com números inteiros. Por um exemplo, sem o conceito de multiplicação, seria possível somar o mesmo número "meia vez"? Não. No entanto, nós conseguimos fazer a multiplicação por $\frac{1}{2}$ (que é a divisão por dois). E é esse tipo de resultado que desejamos alcançar nesse capítulo.
+(Para uma definição formal de função exponencial, confira \ref{ap:exp})
+
+\subsection{Expoentes inteiros}
+\subsubsection{Propriedades Básicas}
+Seja $a\in \mathbb{R}$ o número real que queremos multiplicar várias vezes. Para calcular nosso $a^n$ (lê-se "$a$ elevado a $n$") quando $n$ é um número natural, basta multiplicar $a$ $n$ vezes (quando $n=1$, $a^1 = a$):
+$$a^n = \underbrace{a.a.\ldots.a}_{n}$$
+Isso é o equivalente a dizer (na multiplicação) que
+$$a.n = \underbrace{a+a+\ldots+a}_{n}$$.
+
+Com essa definição de exponenciação nós temos várias propriedades interessantes, por um exemplo:
+$$a^{(n+m)}= \underbrace{a.a.\ldots.a}_{n+m} = \underbrace{a.a.\ldots.a}_{n}. \underbrace{a.a.\ldots.a}_{m}$$
+E também
+$$a^{n.m} = \underbrace{a.a.\ldots.a}_{n.m} = \underbrace{\underbrace{a.a.\ldots.a}_{n}.\underbrace{a.a.\ldots.a}_{n}.\ldots.\underbrace{a.a.\ldots.a}_{n}}_m$$
+$$a^{n.m} = \underbrace{a^n . a^n . \ldots . a^n}_m = (a^n)^m$$
+Resumindo no quadro abaixo:
+\begin{eqnarray} \label{EXP1} a^{n+m} = a^n . a^m \\ \label{EXP2} a^{n.m} = (a^n)^m \\ \label{EXP3} a^1=a \end{eqnarray}
+Quando usamos a notação $a^n$ nos referimos ao $a$ como base e ao $n$ como expoente.
+
+\subsection{Raízes Quadradas e Raízes n-ésimas}
+Existem dois tipos de equações que podem surgir envolvendo potenciação. O primeiro, que trataremos agora, é quando a nossa base não muda: por exemplo, como encontrar o número que multiplicado por ele mesmo é igual a 9? Responder a essa pergunta equivale a resolver a seguinte equação: $$x^2=9$$Se tentarmos alguns números, vemos que $x=3$ é uma resposta possível. Mas uma busca mais profunda nos revela que $x=-3$ também é uma resposta possível.
+
+Nesse ponto as coisas começam a ficar diferente da multiplicação por dois motivos: Primeiro, nós encontramos a resposta por tentativa e erro e não seguindo um algoritmo (como o algoritmo da divisão). Segundo, nós encontramos \textit{duas} respostas e não somente uma.
+
+Para piorar a situação: suponha que nós queremos encontrar o número que elevado a segunda potência seja igual a 2, ou, em linguagem simbólica: $$x^2 = 2$$Se nós tentarmos alguns valores vemos que $1^2 = 1.1 = 1$, $2^2 = 2.2 = 4$. Isso é, $1^2$ é menor que $2$, mas $2^2$ é maior que $2$. Isso nos indica que o nosso procurado $x$ está entre $1$ e $2$. Vamos então tentar $x=1,5$ Nesse caso $x^2 = 1,5.1,5 = 2,25$. Assim a raiz da nossa equação é menor do que $1,5$. Podemos tentar $x = 1.4$ e nesse caso obteríamos $x^2 = 1.96$, que é uma boa aproximação, mas não o valor que procurávamos. O que nós sabemos é que a raiz que procuramos está entre $1,4$ e $1,5$ e que poderíamos encontrar uma aproximação tão boa quanto quisermos da raiz da nossa equação.
+
+Um fato chocante, porém, é que a raiz da nossa equação \textit{não} é um número racional. Antes de provar esse fato e todas as complicações que surgem do mesmo, vamos adotar uma notação, chamaremos a raiz de nossa equação que está entre $1,4$ e $1,5$ de  $\sqrt{2}$. 
+
+
+
+\subsubsection{Definição para os números inteiros (negativos)}
+Agora nós vamos manter essas propriedades em mente e tentar generalizar a definição. Vamos começar pelos números negativos. Por um exemplo, qual seria o efeito de elevar um número real a $-1$?
+
+Usando a propriedade (1) que deduzimos anteriormente temos:
+$$a^1 = a^{(2-1)} = a^2.a^{-1}$$
+Lembrando que $a^1 = a$, podemos reescrever a equação anterior da seguinte forma:
+$$a^2.a^{-1} = a$$E então nós podemos "isolar" o nosso $a^{-1}$. Teremos:
+$$a^{-1} = \frac{a}{a^2} \text{ Ou, ainda } a^{-1} = \frac{a}{a.a} = \frac{1}{a}$$
+(Perceba que nós dividimos por $a^2$. Será que é possível fazer essa divisão quando a=0?)
+
+E nós chegamos na nossa primeira generalização: $$a^{-1} = \frac{1}{a}$$
+Agora, usando a propriedade (2) (que nós queremos preservar!) teremos: $$a^{-n} = a^{-1.n}=(a^n)^{-1}=\frac{1}{a^n}$$
+
+\subsubsection{Definição pra os números racionais}
+Já temos a teoria de exponenciação pronta no caso em que o expoente é um número inteiro qualquer. Vamos tratar agora dos números racionais. Como é sabido, um número racional se escreve como a divisão de dois números inteiros. Seja então $r = \frac{p}{q}$, onde $r$ é nosso número racional e $p$ e $q$ são números inteiros. Usando a propriedade $3$ como guia temos
+$$a^{\frac{p}{q}} = a^{p \frac{1}{q}} = (a^{\frac{1}{q}})^p$$Assim, para definirmos $a^r$ na verdade só precisamos definir $a^{\frac{1}{p}}$. Vejamos: $$a^1 = a^{\frac{p}{p}} = (a^{\frac{1}{p}})^p$$Assim $$(a^{\frac{1}{p}})^p = a$$
+Se o expoente for um número racional, primeiro precisamos escrevê-lo em sua forma irredutível $\frac{p}{q}$, com $p$ e $q$ primos entre si e então
+$$a^{\frac{p}{q}} = \sqrt[q]{a^p}$$
+Se o expoente for um número real, basta aproximá-lo por um número racional. 
+\subsection{Propriedades Algébricas}
+As seguintes propriedades são válidas para $a \in \mathbb{R}^+$
+\begin{eqnarray}
+a^{x+y}=a^x.a^y & (a^x)^y = a^{(x.y)} \\
+a^0 = 1 & a^1 = 1 \\
+(a.b)^x = a^x.b^x  & \left ( \frac{a}{b} \right )^x = \frac{a^x}{b^x} 
+\end{eqnarray}

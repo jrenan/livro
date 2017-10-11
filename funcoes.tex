@@ -1,0 +1,67 @@
+\chapter{Funções}
+O conceito de função é crucial para a organização da matemática, é uma de suas peças cruciais. Nosso primeiro contato com funções é no entendimento de relações entre medidas: quanto mais leite no copo, mais pesado. Também na compreensão dos preços nos supermercados onde a cada mercadoria se associa um preço ou mesmo no preço de um prato de comida em um \textit{self-service}: quanto mais pesado o prato, mais caro. 
+
+Uma descrição recorrente dada para função é de que função é uma \textit{máquina} que recebe um determinado valor como entrada e devolve um determinado valor como saída. Uma função é, intuitivamente, uma relação entre objetos. A cada objeto de uma determinada coleção associamos outro objeto. A vagueza da palavra \textit{associar} torna turva a precisão de nossa definição. Tal associação pode ser feita das mais diversas formas. Vamos dar alguns exemplos de possíveis definições:
+\margem{Apesar da ressalva que fazemos no exemplo, dependendo do contexto esse tipo de definição é aceitável. Por exemplo, em um livro de mecânica pode-se assumir que a variável $t$ representa o tempo, ou seja, pode ser qualquer número real maior ou igual a zero. 
+
+Uma notação ideal para o Exemplo 1 seria $S(t) = t^2$, que deixa explícito que $S$ depende de $t$.}
+\exem{Descrevendo uma função por uma fórmula}{
+Quando escrevemos $S = t^2$ estamos especificando que a \textit{variável} $S$ \textbf{depende} da \textit{variável}
+ $t$ de acordo com essa fórmula (chamamos $S$ de variável dependente e $t$ de variável independente). Fica vago nesse tipo de descrição qual é domínio de validade da variável $t$, ou seja, quem são os elementos que podemos substituir por $t$.
+ O problema desse tipo de definição é a sua limitação. O que é lícito de se usar como \textit{fórmula}? Outro problema é a impossibilidade de usar fórmulas diferentes para diferentes valores de $t$.
+ }
+
+\exem{Descrevendo uma função por uma tabela}{Uma lista, como uma lista telefônica (objeto arcaico utilizado em meados do século XX para encontrar o número de telefone através do nome) é uma função. O problema desse tipo de formulação é que não está muito claro se existem listas infinitas, enquanto é frequente na prática matemática a necessidade relações entre conjuntos infinitos  }
+
+
+\exem{Descrevendo uma função por uma regra}{Regras precisas podem fornecer uma função. Por exemplo, a regra: \textit{a um número natural, associe o seu maior divisor} fornece uma função. O problema dessa "definição" é que nem sempre \textit{existe} uma tal regra relacionando as duas quantidades que queremos relacionar}
+\margem{ Um exemplo de função que não é descritível por gráfico é a função $\left\{
+\begin{array}{lr} 1,&x\in\mathbb{Q}\\
+0,&x\in\mathbb{R}\backslash \mathbb{Q}
+\end{array}
+\right.$
+\\ Conhecida como função de \textit{Dirichlet} ou (função característica dos racionais)}
+\exem{Descrevendo uma função por um gráfico}{Um gráfico exato descreve uma função de forma inequívoca. Em ciências e em áreas aplicadas é comum que funções sejam dadas dessa forma e identificamos o gráfico com alguma figura - gráfico frequentemente é entendido como alguma representação visual da função. Nesse sentido, um gráfico não serve para descrever todas as funções. Em matemática, apesar de todas as funções possuírem gráficos - no sentido conjuntista - nem todos esses gráficos são possíveis de se visualizar. 
+}
+
+\section{Uma definição formal para função}
+A definição mais utilizada para função usa o conceito de relação. Relembre que uma relação $R$ entre os conjuntos $A$ e $B$ é simplesmente um subconjunto de $A \times B$, o produto cartesiano de $A$ e $B$ e que se $a \in A$, $b \in B$ são tais que $(a,b) \in R$ escrevemos $aRb$ ou dizemos que $a$ possui a relação $R$ com $b$. 
+\margem{A definição de função usando o conceito de relação serve para dar precisão a noção de função por um lado e por outro para reduzir o conceito de função ao conceito de conjunto, segundo o mote \textit{tudo são conjuntos}. No entanto, na prática, nós nunca pensamos em funções como conjuntos.}
+Uma relação, no entanto, pode ser algo muito diferente de uma função. Queremos que as nossas funções façam associações de forma única, ou seja, partindo de um elemento chegamos em um e somente uma resposta. Portanto definimos:
+
+\label{def:funcao}\definicao{\textbf{Função} \\ \begin{center}
+Uma função $f$ com domínio $A$ e contra-domínio $B$ é uma relação entre $A$ e $B$ tal que para cada $a \in A$ existe um e somente um $b \in B$ tal que $aRb$. Nesse caso escrevemos $f \colon A \to B$ e $f(a) = b$.
+\end{center}
+}\\
+\marginpar{
+	\includegraphics[width=0.85\marginparwidth]{imagens/funcao_f.png}
+	\captionof{figure}{Representação em Diagrama da função $f$ do Testando Conceito 1}
+	\label{fig:funcao_f}
+	}
+	
+
+
+\begin{inlinexer}
+Verifique se são funções de $X = \{1,2,3\}$ e $Y=\{A,B,C,D\}$ 
+\begin{enumerate}
+    \item $f = \{ (1,D) , (2,C), (3,C)\}$
+    \item $g = \{(1,D),(2,B),(2,C)\}$
+    \item $h = \{(1,A),(2,B)\}$
+\end{enumerate}
+\begin{flushright}
+\tiny[\textbf{Solução}: $f$ é função; $g$ não é função, $2$ está relacionado com dois elementos diferentes; $h$ não é função, já que $3$ não está relacionado com ninguém.]
+\end{flushright}
+\end{inlinexer}
+
+Outro conceito importante é o de \textit{imagem} de uma função, que são os valores atingidos pela função. O contra-domínio, no geral, pode ser algo muito grande e de pouco valor prático. 
+\label{def:imagem}\definicao{\textbf{Imagem} \\ \begin{center}
+Seja $f \colon A \to B$ uma função. A \textit{imagem} de $f$ é definido como $$I = \{ y \in B \ | \ \text{ existe }x \in A\text{ e } f(x)=y\} $$
+\end{center}
+}\\
+Perceba que, pela definição, a imagem \textbf{a imagem é sempre um subconjunto do contradomínio}.
+
+\marginpar{
+	\includegraphics[width=0.85\marginparwidth]{imagens/funcao_g.png}
+	\captionof{figure}{Representação em Diagrama da função $g$ do Testando Conceito 1}
+	\label{fig:funcao_g}
+	}
